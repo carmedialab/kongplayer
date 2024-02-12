@@ -1,0 +1,33 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <application android:appCategory="audio"
+        android:name=".KongPlayerApplication">
+        <meta-data
+            android:name="com.google.android.gms.car.application"
+            android:resource="@xml/automotive_app_desc" />
+
+        <!-- Main music service, provides media browsing and media playback services to
+         consumers through MediaBrowserService and MediaSession. Consumers connect to it through
+         MediaBrowser (for browsing) and MediaController (for playback control) -->
+        <service
+            android:name="com.bely.kongplayer.shared.MyMusicService"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.media.browse.MediaBrowserService" />
+            </intent-filter>
+        </service>
+        <activity
+            android:name=".LoginActivity"
+            android:theme="@style/Theme.AppCompat"
+            android:exported="true" />
+        <activity
+            android:name=".SettingActivity"
+            android:theme="@style/Theme.AppCompat"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.APPLICATION_PREFERENCES"/>
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
